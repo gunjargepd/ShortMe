@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>Create Link</title>
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="d-flex justify-content-center" style="margin-top:5%; position: relative;">
+    <br>
+    <div class="col-md-6" style="border:1px solid grey; padding: 2%;">
+        <div>
+            <h2>Create Link</h2>
+            <br>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <br>
+            {% endfor %}
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="suffix" class="form-label">Suffix</label>
+                    <input type="text" class="form-control" id="suffix" name="suffix" value="{{ suffix }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="url" class="form-label">Url</label>
+                    <input type="text" class="form-control" id="url" name="url" value="{{url}}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="limit" class="form-label">Limit</label>
+                    <input type="number" class="form-control" id="limit" name="limit" value="{{limit}}" required>
+                </div>
+
+
+                <input type="submit" class="btn btn-primary" value="Create">
+                <a href="{% url 'links' %}" class="btn btn-danger">Cancel</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

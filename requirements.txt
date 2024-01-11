@@ -1,0 +1,6 @@
+pillow==10.2.0
+segno==1.6.0
+django==5.0.1
+django-environ==0.11.2
+psycopg2-binary==2.9.9
+azure-ai-contentsafety==1.0.0

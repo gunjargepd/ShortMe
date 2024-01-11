@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    </head>
+
+    <body class="container-fluid">
+
+        <div class="container">
+
+            <div class="d-flex justify-content-center" style="margin-top:12%; position: relative;">
+                <br>
+                <div class="row" style="border:1px solid grey; padding: 2%;">
+
+                    <div>
+                        <h2>Login</h2>
+                        <br>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <br>
+                        {% endfor %}
+                        {% endif %}
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username </label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password </label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Login">
+                        </form>
+                        <p>Don't have an account, <a href="{% url 'register' %}">click here</a> to register</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    </body>
+
+</html>
