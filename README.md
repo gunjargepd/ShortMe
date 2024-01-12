@@ -34,6 +34,11 @@ Follwoing are few screenshot
 ![Screenshot](/static/screenshots/contact.png)
 
 
+Following are the azure tools used in project
+
+![Screenshot](/static/screenshots/azure.png)
+
+
 ## To Run
 
 Create a virtual environment
